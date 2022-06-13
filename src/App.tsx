@@ -1,26 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {StateType} from "./bll/weather-reducer";
+import {useSelector} from "react-redux";
+import './App.scss'
+import {StoreType} from "./bll/store";
+import DescriptionBlock from "./components/DescriptionBlock";
+import SearchBlock from "./components/SearchBlock";
+import {bgImageChange} from "./assets/backgroundImageChanger";
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const weather = useSelector<StoreType, StateType>(state => state.weather)
+
+    return (
+        <div className={`${'app'} ${bgImageChange(weather)}`}>
+            <main>
+                <SearchBlock/>
+                {weather.location.name && <DescriptionBlock weather={weather}/>}
+            </main>
+        </div>
+    );
 }
 
 export default App;

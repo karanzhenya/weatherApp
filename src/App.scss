@@ -1,0 +1,47 @@
+.app {
+  background-size: cover;
+
+  main {
+    min-height: 100vh;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4));
+  }
+}
+
+.app.app-bg-winter {
+  background: url('assets/images/winter-bg.jpg');
+}
+
+.app.app-bg-sun {
+  background: url('assets/images/sun.jpg');
+}
+
+.app.app-bg-cloudy {
+  background: url('assets/images/cloudy.jpg');
+}
+
+.app.app-bg-rain {
+  background: url('assets/images/rain.jpg');
+}
+
+.app.app-bg-clear {
+  background: url('assets/images/clear.jpg');
+}
+
+.app.app-bg-heavy-rain {
+  background: url('assets/images/heavy_rain.jpg');
+}
+
+.app.app-bg-partly-cloudy {
+  background: url('assets/images/partly_cloudy.jpg');
+}
+
+.app.app-bg-thunderstorm {
+  background: url('assets/images/thunderstorm.jpg');
+}
+.app.app-bg-thunderstorm-rain {
+  background: url('assets/images/thunderstorm_rain.jpg');
+}
