@@ -1,48 +1,64 @@
 import {StateType} from "../bll/weather-reducer";
 
 export function bgImageChange(weather: StateType) {
-    switch (weather.current.weather_descriptions[0]) {
-        case 'Sunny': {
+    switch (weather.current.weather_descriptions[0].toLowerCase()) {
+        case 'sunny': {
             return 'app-bg-sun'
         }
-        case 'Clear': {
+        case 'clear': {
             return 'app-bg-clear'
         }
-        case 'Cloudy': {
+        case 'cloudy': {
             return 'app-bg-cloudy'
         }
-        case 'Partly cloudy': {
+        case 'smoke': {
+            return 'app-bg-cloudy'
+        }
+        case 'mist': {
+            return 'app-bg-mist'
+        }
+        case 'partly cloudy': {
             return 'app-bg-partly-cloudy'
         }
-        case 'Light Rain': {
+        case 'light rain': {
             return 'app-bg-rain'
         }
-        case 'Thunderstorm': {
+        case 'light drizzle': {
+            return 'app-bg-light-drizzle'
+        }
+        case 'thunderstorm': {
             return 'app-bg-thunderstorm'
         }
-        case 'Rain Shower': {
+        case 'rain shower': {
             return 'app-bg-rain'
         }
-        case 'Thunderstorm In Vicinity, Rain With Thunderstorm': {
+        case 'thunderstorm in vicinity, rain with thunderstorm': {
             return 'app-bg-thunderstorm-rain'
         }
-        case 'Overcast': {
+        case 'overcast': {
             return 'app-bg-rain'
         }
-        case 'Patchy rain possible': {
+        case 'patchy rain possible': {
             return 'app-bg-rain'
         }
-        case 'Light rain shower': {
+        case 'light rain shower': {
             return 'app-bg-rain'
         }
-        case 'Moderate or heavy rain shower': {
+        case 'moderate rain': {
+            return 'app-bg-rain'
+        }
+        case 'thundery outbreaks possible': {
+            return 'app-bg-thunderstorm'
+        }
+        case 'moderate or heavy rain shower': {
             return 'app-bg-heavy-rain'
         }
-        case 'Patchy light rain with thunder': {
+        case 'patchy light rain with thunder': {
             return 'app-bg-heavy-rain'
         }
-        case 'Snow': {
+        case 'snow': {
             return 'app-bg-heavy-winter'
         }
+        default: return 'app-bg-main-bg'
     }
 }
