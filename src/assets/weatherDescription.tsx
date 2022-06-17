@@ -20,5 +20,8 @@ export const weatherDescription: WeatherDescriptionsType = {
     'patchy light rain with thunder': 'Небольшой дождь с грозой',
     'thunderstorm': 'Гроза',
     'thundery outbreaks possible': 'Возможны грозы',
-    'thunderstorm in vicinity, rain with thunderstorm': 'Дождь с грозой'
+    'thunderstorm in vicinity, rain with thunderstorm': 'Дождь с грозой',
+    'thunderstorm, rain shower': 'Дождь, гроза',
+    'light rain shower, rain with thunderstorm, squalls': 'Небольшой дождь, гроза, сильный ветер',
+    'shower in vicinity': 'Приближается дождь'
 }
