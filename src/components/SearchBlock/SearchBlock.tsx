@@ -1,7 +1,7 @@
 import React, {ChangeEvent, KeyboardEvent, memo, useState} from 'react';
 import {useDispatch} from "react-redux";
 import {Dispatch} from "redux";
-import {setWeatherData} from "../bll/weather-reducer";
+import {setWeatherData} from "../../bll/weather-reducer";
 import './SearchBlock.scss'
 
 export default memo(function SearchBlock() {

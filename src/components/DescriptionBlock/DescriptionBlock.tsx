@@ -1,14 +1,16 @@
 import React, {memo} from 'react';
-import {StateType} from "../bll/weather-reducer";
-import {weatherDescription} from "../assets/weatherDescription";
+import {StateType} from "../../bll/weather-reducer";
+import {weatherDescription} from "../../assets/weatherDescription";
 import './DescriptionBlock.scss'
 
 
 type DescriptionBlockPropsType = {
-    weather: StateType
+    weather: StateType,
+    loading: boolean
 }
 
-export default memo(function DescriptionBlock({weather}: DescriptionBlockPropsType) {
+export default memo(function DescriptionBlock({weather, loading}: DescriptionBlockPropsType) {
+
         return (
             <div className={'info-box'}>
                 <h2 className={'location'}>{weather.location.name}, {weather.location.country}</h2>

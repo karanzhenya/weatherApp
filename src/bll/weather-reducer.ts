@@ -1,6 +1,8 @@
-import {AxiosResponse} from "axios";
+import {AxiosError, AxiosResponse} from "axios";
 import {Dispatch} from "redux";
 import {weatherApi} from "../api/weatherApi";
+import {ErrorType, setErrorAC, setLoadingAC} from "./app-reducer";
+import {AppThunkType, RootActionsType} from "./store";
 
 export type StateType = {
     current: {
@@ -33,7 +35,7 @@ export type StateType = {
     }
 }
 
-export type ActionsType = ReturnType<typeof setWeatherDataAC>
+export type WeatherActionsType = ReturnType<typeof setWeatherDataAC>
 
 const initialState: StateType = {
     current: {
@@ -66,7 +68,7 @@ const initialState: StateType = {
     }
 }
 
-export const WeatherReducer = (state: StateType = initialState, action: ActionsType) => {
+export const WeatherReducer = (state: StateType = initialState, action: WeatherActionsType) => {
     switch (action.type) {
         case "SET-WEATHER-DATA": {
             let stateCopy = {...state}
@@ -82,8 +84,22 @@ export const setWeatherDataAC = (data: StateType) => {
     return ({type: 'SET-WEATHER-DATA', data} as const)
 }
 
-export const setWeatherData = (city: string | null) => (dispatch: Dispatch<ActionsType>) => {
-    weatherApi.getCurrentWeather(city).then((res: AxiosResponse<StateType>) => {
-        dispatch(setWeatherDataAC(res.data))
+export const setWeatherData = (city: string | null): AppThunkType => (dispatch: Dispatch<RootActionsType>) => {
+    dispatch(setLoadingAC(true))
+    weatherApi.getCurrentWeather(city).then((res: any) => {
+        if (res.data.current.weather_descriptions[0] !== '') {
+            dispatch(setWeatherDataAC(res.data))
+            console.log(res.data)
+        }
+        if (res.success === 'false') {
+            console.log(res.error.info)
+        } else {
+            console.log(res.data)
+        }
+    }).catch((error) => {
+        console.log(error.info)
+        dispatch(setErrorAC(error.info))
+    }).finally(() => {
+        dispatch(setLoadingAC(false))
     })
 }
