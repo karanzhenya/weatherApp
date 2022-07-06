@@ -23,5 +23,6 @@ export const weatherDescription: WeatherDescriptionsType = {
     'thunderstorm in vicinity, rain with thunderstorm': 'Дождь с грозой',
     'thunderstorm, rain shower': 'Дождь, гроза',
     'light rain shower, rain with thunderstorm, squalls': 'Небольшой дождь, гроза, сильный ветер',
-    'shower in vicinity': 'Приближается дождь'
+    'shower in vicinity': 'Приближается дождь',
+    'heavy rain and hail with thunderstorm, squalls': 'Сильный дождь, град с грозой'
 }

@@ -62,6 +62,9 @@ export function bgImageChange(weather: StateType) {
         case 'light rain shower, rain with thunderstorm, squalls': {
             return 'app-bg-rain'
         }
+        case 'heavy rain and hail with thunderstorm, squalls': {
+            return 'app-bg-heavy-rain'
+        }
         case 'shower in vicinity': {
             return 'app-bg-rain'
         }

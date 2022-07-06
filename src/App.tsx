@@ -6,19 +6,22 @@ import {StoreType} from "./bll/store";
 import DescriptionBlock from "./components/DescriptionBlock/DescriptionBlock";
 import SearchBlock from "./components/SearchBlock/SearchBlock";
 import {bgImageChange} from "./assets/backgroundImageChanger";
-import Preloader from "./assets/Preloader/Preloader";
+import {Route, Routes, useLocation} from "react-router-dom";
 
 
 function App() {
     const weather = useSelector<StoreType, StateType>(state => state.weather)
-    const loading = useSelector<StoreType, boolean>(state => state.app.isLoading)
+    const error = useSelector<StoreType, string>(state => state.app.error)
+    const url = useLocation()
 
     return (
         <div className={`${'app'} ${bgImageChange(weather)}`}>
             <main>
+                {!!error && <h1>{error}</h1>}
                 <SearchBlock/>
-                {loading && <Preloader/>}
-                {weather.current.weather_code === 0 ? <></> : <DescriptionBlock loading={loading} weather={weather}/>}
+                <Routes>
+                    {weather.current.weather_code === 0 ? <></> : <Route path={url.pathname} element={<DescriptionBlock weather={weather}/>}/>}
+                </Routes>
             </main>
         </div>
     );

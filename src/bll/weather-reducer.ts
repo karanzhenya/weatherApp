@@ -1,7 +1,6 @@
-import {AxiosError, AxiosResponse} from "axios";
 import {Dispatch} from "redux";
 import {weatherApi} from "../api/weatherApi";
-import {ErrorType, setErrorAC, setLoadingAC} from "./app-reducer";
+import {setErrorAC, setLoadingAC} from "./app-reducer";
 import {AppThunkType, RootActionsType} from "./store";
 
 export type StateType = {
