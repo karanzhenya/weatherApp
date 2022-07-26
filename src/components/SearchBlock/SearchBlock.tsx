@@ -17,7 +17,7 @@ export default memo(function SearchBlock() {
                 setErrorAC('Incorrect value!')
             } else if (e.key === 'Enter') {
                 dispatch(setWeatherData(city))
-                navigator(`/${city}`)
+                navigator(`/weatherApp/${city}`)
             }
         }
         const onChangeCityValue = (e: ChangeEvent<HTMLInputElement>) => {
