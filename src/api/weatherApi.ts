@@ -3,6 +3,6 @@ import {StateType} from "../bll/weather-reducer";
 
 export const weatherApi = {
     getCurrentWeather(city: string | null): Promise<AxiosResponse<StateType>> {
-        return axios.get(`http://api.weatherstack.com/current?access_key=e94698e29dfd54664c0d4c3c7693e9a6&query=${city}`)
+        return axios.get(`http://api.weatherstack.com/current?access_key=770f4a2d7c2f45170b07b4c076349447&query=${city}`)
     }
 }
